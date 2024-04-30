@@ -1,0 +1,12 @@
+.header{
+  box-shadow: 0px 0px 50px 2px #000000A0;
+}
+
+i{
+  font-size: 1.1rem;
+  transform:translateY(.09rem);
+}
+
+.active-link {
+  color: #4f46e5; /* This is the hex code for ng-indigo-600 */
+}

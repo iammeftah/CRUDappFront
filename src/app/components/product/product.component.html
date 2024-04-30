@@ -1,5 +1,30 @@
-<div>
-  <h3>{{ product.name || 'No name' }}</h3>
-  <p>Price: {{ product.price || 0 }}</p>
-  <button (click)="onDelete()">Delete</button>
+<div class="rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300 ease-in-out">
+  <div class="flex justify-end items-center gap-4 w-full py-2 px-4 bg-gray-400 prod-header">
+    <a [routerLink]="['/edit-product', product.id]" class="rounded transition duration-300 ease-in-out">
+      <i class='bx bxs-edit-alt text-gray-800 hover:text-gray-500 text-2xl' ></i>
+    </a>
+    <button (click)="onDelete(product.id)" class="transition duration-300 ease-in-out">
+      <i class='bx bxs-x-circle text-gray-800 hover:text-red-900 text-2xl'></i>
+    </button>
+  </div>
+
+  <div class="flex flex-col md:flex-row p-8">
+    <!-- Product Details -->
+    <div class="w-full md:w-2/3 p-4">
+      <h3 class="text-3xl text-white font-bold mb-2">
+        {{ product.productName || 'No name' }}
+      </h3>
+      <p class="text-gray-300 mb-1">
+        {{"description" | translate}}: <span class="font-semibold">{{ product.productDescription || 'No description' }}</span>
+      </p>
+      <p class="text-gray-300 mb-1">
+        {{"category" | translate}}: <span class="font-semibold">{{ product.productCategory || 'No category' }}</span>
+      </p>
+      <p class="text-gray-300 mb-1">
+        {{"price" | translate}}: <span class="font-semibold">${{ product.productPrice | number:'1.2-2' }}</span>
+      </p>
+
+
+    </div>
+  </div>
 </div>

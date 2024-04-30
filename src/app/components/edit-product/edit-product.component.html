@@ -1,1 +1,41 @@
-<p>edit-product works!</p>
+<form [formGroup]="updateProductForm" (ngSubmit)="onSubmit()" class="max-w-3xl mx-auto p-6 bg-gray-800 rounded-lg shadow-md md:p-6" style="box-shadow: 0px 0px 20px 1px #00000080;">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div>
+      <label for="productName" class="block font-bold text-gray-300">{{ 'productName' | translate }}</label>
+      <input placeholder="{{ 'productName' | translate }}" id="productName" type="text" formControlName="productName" class="w-full p-2 mt-1 border border-gray-500 rounded-md focus:outline-none focus:border-indigo-500">
+    </div>
+    <div>
+      <label for="productCategory" class="block font-bold text-gray-300">{{ 'productCategory' | translate }}</label>
+      <input placeholder="{{ 'productCategory' | translate }}" id="productCategory" type="text" formControlName="productCategory" class="w-full p-2 mt-1 border border-gray-500 rounded-md focus:outline-none focus:border-indigo-500">
+    </div>
+  </div>
+  <div class="grid grid-cols-1 gap-4">
+    <div>
+      <label for="productDescription" class="block font-bold text-gray-300">{{ 'productDescription' | translate }}</label>
+      <textarea placeholder="{{ 'productDescription' | translate }}" id="productDescription" formControlName="productDescription" class="w-full p-2 mt-1 border border-gray-500 rounded-md focus:outline-none focus:border-indigo-500"></textarea>
+    </div>
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div>
+      <label for="productStock" class="block font-bold text-gray-300">{{ 'productStock' | translate }}</label>
+      <input placeholder="{{ 'productStock' | translate }}" id="productStock" type="number" formControlName="productStock" class="w-full p-2 mt-1 border border-gray-500 rounded-md focus:outline-none focus:border-indigo-500">
+    </div>
+    <div>
+      <label for="productPrice" class="block font-bold text-gray-300">{{ 'productPrice' | translate }}</label>
+      <input placeholder="{{ 'productPrice' | translate }}" id="productPrice" type="number" formControlName="productPrice" class="w-full p-2 mt-1 border border-gray-500 rounded-md focus:outline-none focus:border-indigo-500">
+    </div>
+  </div>
+  <div class="flex flex-row items-center justify-center gap-4">
+    <button type="submit" class="w-full py-2 px-4 bg-indigo-500 text-white rounded-md hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 mt-4"><i class='bx bx-check' style="transform: translateY(.1rem)" ></i> {{ 'save' | translate }}</button>
+    <a routerLink="/marketplace" class="text-center w-full py-2 px-4 bg-transparent border-2 border-indigo-500 text-white rounded-md hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 mt-4"><i class='bx bx-arrow-back' style="transform: translateY(.1rem)" ></i> {{ 'cancel' | translate }}</a>
+  </div>
+</form>
+
+<style>
+  /* Hide default arrows */
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+</style>

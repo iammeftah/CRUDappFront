@@ -1,14 +1,20 @@
-<div class="">
-  <form action="#" method="post">
-
-    <label for="fullName">Full Name:</label>
-    <input id="fullName" name="fullName" placeholder="Full Name" type="text" required>
-
-    <label for="email">Email:</label>
-    <input id="email" name="email" placeholder="Email" type="email" required>
-
-
-
-    <button type="submit">Submit</button>
-  </form>
-</div>
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="max-w-3xl mx-auto bg-gray-800 p-6 rounded-lg shadow-md" style="box-shadow: 0px 0px 20px 1px #00000080;">
+  <div class="grid grid-cols-1 gap-4">
+    <div>
+      <label for="fullName" class="block font-bold text-gray-300">{{ 'fullName' | translate }}</label>
+      <input type="text" id="fullName" formControlName="fullName" class="w-full p-2 mt-1 border border-gray-500 rounded-md focus:outline-none focus:border-indigo-500 hover:outline-none hover:border-indigo-500" placeholder="{{ 'fullName' | translate }}">
+    </div>
+    <div>
+      <label for="email" class="block font-bold text-gray-300">{{ 'email' | translate }}</label>
+      <input type="email" id="email" formControlName="email" class="w-full p-2 mt-1 border border-gray-500 rounded-md focus:outline-none focus:border-indigo-500 hover:outline-none hover:border-indigo-500" placeholder="{{ 'email' | translate }}">
+    </div>
+    <div>
+      <label for="message" class="block font-bold text-gray-300 mt-4">{{ 'message' | translate }}</label>
+      <textarea id="message" formControlName="message" class="w-full p-2 mt-1 border border-gray-500 rounded-md focus:outline-none focus:border-indigo-500 min-h-32 max-h-32 hover:outline-none hover:border-indigo-500" placeholder="{{ 'message' | translate }}"></textarea>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <button type="submit" class="w-full py-2 px-4 bg-indigo-500 text-white rounded-md hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 mt-4"><i class='bx bxs-send' style="transform: translateY(.1rem)" ></i> {{ 'submit' | translate }}</button>
+      <a routerLink="/marketplace" class="cursor-pointer text-center w-full py-2 px-4 bg-transparent border-2 border-indigo-500 text-white rounded-md hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 mt-4"> <i class='bx bx-arrow-back' style="transform: translateY(.1rem)" ></i> {{ 'cancel' | translate }}</a>
+    </div>
+  </div>
+</form>

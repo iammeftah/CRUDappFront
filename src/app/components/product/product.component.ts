@@ -8,12 +8,13 @@ import { DataService } from '../../data.service';
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent {
+
   @Input() product: Product = {} as Product; // Initialize with an empty object
   @Output() deleteProduct: EventEmitter<number> = new EventEmitter();
 
   constructor(private dataService: DataService) { }
 
-  onDelete() {
+  onDelete(id: number) {
     this.dataService.deleteProduct(this.product.id).subscribe(
       () => {
         this.deleteProduct.emit(this.product.id);
@@ -23,4 +24,7 @@ export class ProductComponent {
       }
     );
   }
+
+
+
 }

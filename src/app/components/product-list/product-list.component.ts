@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from '../../data.service';
 import { Product } from '../../product.model';
+import { DataService } from '../../data.service';
 
 @Component({
   selector: 'app-product-list',
@@ -13,13 +13,10 @@ export class ProductListComponent implements OnInit {
   constructor(private dataService: DataService) { }
 
   ngOnInit() {
-    this.getProducts();
-  }
-
-  getProducts() {
     this.dataService.getProducts().subscribe(
-      (response) => {
-        this.products = response;
+      (products: Product[]) => {
+        console.log('Fetched products:', products);
+        this.products = products;
       },
       (error) => {
         console.error('Error fetching products:', error);
@@ -27,7 +24,17 @@ export class ProductListComponent implements OnInit {
     );
   }
 
+
   deleteProduct(id: number) {
-    this.products = this.products.filter(product => product.id !== id);
+    this.dataService.deleteProduct(id).subscribe(
+      () => {
+        this.products = this.products.filter(product => product.id !== id);
+      },
+      (error) => {
+        console.error('Error deleting product:', error);
+      }
+    );
   }
+
+
 }

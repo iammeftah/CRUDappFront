@@ -1,10 +1,10 @@
-import { Component } from '@angular/core';
+import { Directive, ElementRef, Renderer2 } from '@angular/core';
 
-@Component({
-  selector: 'app-splineviewerdirective',
-  templateUrl: './splineviewerdirective.component.html',
-  styleUrls: ['./splineviewerdirective.component.css']
+@Directive({
+  selector: 'spline-viewer'
 })
 export class SplineviewerdirectiveComponent {
-
+  constructor(private el: ElementRef, private renderer: Renderer2) {
+    // You can perform any initialization here if needed
+  }
 }

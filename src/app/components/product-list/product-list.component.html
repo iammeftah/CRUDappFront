@@ -1,5 +1,13 @@
-<ul>
-  <li *ngFor="let product of products">
-    <app-product [product]="product" (deleteProduct)="deleteProduct($event)"></app-product>
+<ul
+  class="grid grid-cols-1 gap-8 py-12 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 "
+>
+  <li
+    *ngFor="let product of products"
+    class="bg-gray-800 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300 ease-in-out grid-cell"
+  >
+    <app-product
+      [product]="product"
+      (deleteProduct)="deleteProduct($event)"
+    ></app-product>
   </li>
 </ul>
