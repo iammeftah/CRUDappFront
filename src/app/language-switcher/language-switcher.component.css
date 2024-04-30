@@ -1,0 +1,29 @@
+.lang-switch {
+  position: relative;
+  display: inline-block;
+}
+
+.lang-switch select {
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  background-color: #f1f1f1;
+  cursor: pointer;
+  outline: none;
+  width: 150px;
+}
+
+.lang-switch select:focus {
+  border-color: #007bff;
+}
+
+.lang-switch::after {
+  content: "\25BC";
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  font-size: 12px;
+  pointer-events: none;
+}

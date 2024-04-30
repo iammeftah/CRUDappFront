@@ -1,0 +1,119 @@
+.logo a {
+  font-size: 2rem;
+}
+
+.logo a i {
+  font-size: 1.8rem;
+  margin: 0 .3rem;
+  transition: 0.1s ease-in-out;
+  color: #1F2937;
+  filter: drop-shadow(0px 0px 6px #FFFFFF);
+}
+
+.logo:hover a i {
+  color: #FF4444;
+  filter: drop-shadow(0px 0px 6px #ff4444);
+    transform: translateY(-.1rem);
+}
+
+.logo:hover .logo-content {
+  display: flex;
+    transform: translateY(-.1rem);
+
+}
+
+.logo .logo-content .heart {
+  display: none;
+  transform: translateY(.1rem);
+  position: absolute;
+}
+
+.logo:hover .logo-content .heart {
+  display: block;
+    transform: translateY(-.1rem);
+
+  animation: showHeart 0.5s forwards; /* Use keyframe animation to show the heart */
+}
+
+/* Keyframe animation for showing the heart */
+@keyframes showHeart {
+  from {
+    opacity: 0;
+    transform: translateY(.1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.logo:hover .logo-content .i {
+  animation: moveI 0.5s forwards; /* Use keyframe animation for "i" */
+}
+
+.logo:hover .logo-content .crud {
+    transform: translateY(-.1rem);
+
+  animation: moveCrud 0.5s forwards; /* Use keyframe animation for "Crud" */
+}
+
+/* Keyframe animations for "i" and "Crud" */
+@keyframes moveI {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-.4rem);
+  }
+}
+
+@keyframes moveCrud {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(1.6rem);
+  }
+}
+
+/* Reverse animations for when hover is removed */
+.logo .logo-content .heart {
+  animation: hideHeart 0.5s forwards; /* Use keyframe animation to hide the heart */
+}
+
+@keyframes hideHeart {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(.1rem);
+  }
+}
+
+.logo .logo-content .i {
+  animation: resetI 0.5s forwards; /* Use keyframe animation to reset "i" */
+}
+
+.logo .logo-content .crud {
+  animation: resetCrud 0.5s forwards; /* Use keyframe animation to reset "Crud" */
+}
+
+@keyframes resetI {
+  from {
+    transform: translateX(-.4rem);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes resetCrud {
+  from {
+    transform: translateX(1.6rem);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
